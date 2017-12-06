@@ -39,7 +39,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "joris.ide.myquotations2MyQuotations2.view.Main",
+			"viewName": "joris.ide.myquotations2MyQuotations2.view.App",
 			"type": "XML"
 		},
 		"dependencies": {

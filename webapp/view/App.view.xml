@@ -1,0 +1,7 @@
+<View xmlns="sap.f" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" controllerName="joris.ide.myquotations2MyQuotations2.controller.App" height="100%">
+	<FlexibleColumnLayout id="fcl">
+		<beginColumnPages>
+			<mvc:XMLView id="beginView" viewName="joris.ide.myquotations2MyQuotations2.view.Master" />
+		</beginColumnPages>
+	</FlexibleColumnLayout>
+</View>

@@ -6,9 +6,29 @@ sap.ui.define([
 	"use strict";
 
 	return UIComponent.extend("joris.ide.myquotations2MyQuotations2.Component", {
-
 		metadata: {
-			manifest: "json"
+			rootView: "joris.ide.myquotations2MyQuotations2.view.App",
+			dependencies: {
+				libs: [
+					"sap.m",
+					"sap.f"
+				]
+			},
+			config: {
+				sample: {
+					stretch: true,
+					files: [
+						"Component.js",
+						"App.controller.js",
+						"App.view.xml",
+						"Master.controller.js",
+						"Master.view.xml",
+						"Detail.controller.js",
+						"Detail.view.xml",
+						"DetailDetail.view.xml"
+					]
+				}
+			}
 		},
 
 		/**
