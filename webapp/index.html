@@ -8,11 +8,9 @@
 		<title>MyQuotations2</title>
 
 		<script id="sap-ui-bootstrap"
-			src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+			src="../../resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-theme="sap_belize"
-			data-sap-ui-xx-bindingSyntax="complex"
-			data-sap-ui-preload="async"
 			data-sap-ui-compatVersion="edge"
 			data-sap-ui-resourceroots='{"joris.ide.myquotations2MyQuotations2": ""}'>
 		</script>
@@ -20,18 +18,24 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script>
-			sap.ui.getCore().attachInit(function() {
-				new sap.m.App ({
-					pages: [
-						new sap.m.Page({
-							title: "My Quotations 2.0",
-							enableScrolling : false,
-							content: [ new sap.ui.core.ComponentContainer({
-								height : "100%", name : "joris.ide.myquotations2MyQuotations2"
-							})]
-						})
-					]
-				}).placeAt("content");
+		sap.ui.getCore().attachInit(function() {
+				sap.ui.require([
+					"joris/ide/myquotations2MyQuotations2/localService/mockserver",
+				], function (mockserver) {
+					mockserver.init();
+					new sap.m.App ({
+						pages: [
+							new sap.m.Page({
+								//title: "My Quotations 2.0",
+								enableScrolling : false,
+								showHeader: false,
+								content: [ new sap.ui.core.ComponentContainer({
+									height : "100%", name : "joris.ide.myquotations2MyQuotations2"
+								})]
+							})
+						]
+					}).placeAt("content");
+				});
 			});
 		</script>
 	</head>

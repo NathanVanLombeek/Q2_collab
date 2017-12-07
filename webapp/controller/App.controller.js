@@ -10,7 +10,7 @@ sap.ui.define([
 			this.bus = sap.ui.getCore().getEventBus();
 			this.bus.subscribe("flexible", "setDetailPage", this.setDetailPage, this);
 			this.bus.subscribe("flexible", "setDetailDetailPage", this.setDetailDetailPage, this);
-
+			this.oQuotationModel = this.getOwnerComponent().getModel("quotationModel");
 			this.oFlexibleColumnLayout = this.getView().byId("fcl");
 		},
 
