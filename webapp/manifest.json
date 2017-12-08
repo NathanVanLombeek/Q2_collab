@@ -16,11 +16,10 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/",
+				"uri": "/destinations/northwind/V2/Northwind/Northwind.svc/",
 				"type": "OData",
 				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
+					"odataVersion": "2.0"
 				}
 			}
 		}
@@ -93,6 +92,7 @@
 				}
 			},
 			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
 				"dataSource": "mainService"
 			},
 			"quotationModel": {

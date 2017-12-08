@@ -8,27 +8,45 @@ sap.ui.define([
 		onInit: function() {
 			this.bus = sap.ui.getCore().getEventBus();
 			//this.oQuotationModel = new sap.ui.model.json.JSONModel();
+			this.oDataModel = this.getOwnerComponent().getModel();
 			this.oQuotationModel = this.getOwnerComponent().getModel("quotationModel");
 			this.oSelectedQuotationModel = this.getOwnerComponent().getModel("selectedQuotationModel");
-		
+			
 			//TODO: replace with service
 			this.initMockData();
 		},
+		
+		
 		handleMasterPress: function(oEvent) {
 			MessageToast.show("Loading mid column...");
 			// The actual Item
 		    var oItem = oEvent.getSource();
 		    // The model that is bound to the item
 		    var oContext = oItem.getBindingContext("quotationModel");
+		    var iQuotationNumber = oContext.sPath.split("/")[2];
+		    
 		    // A single property from the bound model
-		    this.oSelectedQuotationModel.setData(oContext);
+		    this.oSelectedQuotationModel.setData(this.oQuotationModel.getData().quotatonCollection[iQuotationNumber]);
 		    
 			this.bus.publish("flexible", "setDetailPage");
 			
 			
 		},
+		//TODO: something wrong with request
+		initMockDataServer: function() {
+			var self = this;
+			this.oDataModel.read("/FindUpcomingMeetups", {
+			      success: function(oData){
+			      	self.oQuotationModel.setProperty("/meetups", oData);
+			      	self.oQuotationModel.refresh();
+			      },
+			      error: function(){
+
+			      }
+			  }); 
+		},
 		initMockData: function() {
-			this.oQuotationModel.setProperty("/productCollection",
+			this.oQuotationModel.setProperty("/quotatonCollection",
 				[{
 					"ProductId": "id_1",
 					"Name": "Gladiator MX",

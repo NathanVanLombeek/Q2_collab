@@ -1,9 +1,8 @@
-
 <View xmlns="sap.m" displayBlock="true" controllerName="joris.ide.myquotations2MyQuotations2.controller.Master" height="100%">
 	<Page id="masterPage" title="Master page">
-		<List headerText="{i18n>headerText}" id="list" items="{quotationModel>/productCollection}" noDataText="{i18n>noDataText}">
+		<List headerText="{i18n>headerText}" id="list" items="{quotationModel>/quotatonCollection}" noDataText="{i18n>noDataText}">
 			<items>
-				<ObjectListItem type="Navigation" press="handleMasterPress" number="{ path: 'EventDate', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium' } }" title="{quotationModel>Name}">
+				<ObjectListItem type="Navigation" press="handleMasterPress" number="{ path: 'quotationModel>EventDate', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium' } }" title="{quotationModel>Name}">
 					<attributes>
 						<ObjectAttribute text="{quotationModel>Name}"/>
 					</attributes>
