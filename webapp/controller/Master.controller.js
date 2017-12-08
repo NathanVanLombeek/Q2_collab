@@ -19,15 +19,17 @@ sap.ui.define([
 		
 		handleMasterPress: function(oEvent) {
 			MessageToast.show("Loading mid column...");
-			// The actual Item
-		    var oItem = oEvent.getSource();
-		    // The model that is bound to the item
-		    var oContext = oItem.getBindingContext("quotationModel");
-		    var iQuotationNumber = oContext.sPath.split("/")[2];
+			// ** INFO:
+			// The actual Item : oEvent.getSource();
+		    // The model that is bound to the item : oEvent.getSource().getBindingContext("quotationModel")
+		    // 
+		    // The object that is bound to the selected item of the quotationModel
+		    var oQuotation = oEvent.getSource().getBindingContext("quotationModel").getObject();
 		    
-		    // A single property from the bound model
-		    this.oSelectedQuotationModel.setData(this.oQuotationModel.getData().quotatonCollection[iQuotationNumber]);
+		    // Set the model for the detail view
+		    this.oSelectedQuotationModel.setData(oQuotation);
 		    
+		    // call the method that adds the detailview
 			this.bus.publish("flexible", "setDetailPage");
 			
 			
